@@ -21,10 +21,13 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <NavLink className="nav-link"  to="/profile">General</NavLink>
+                    <NavLink className="nav-link"  to="/quizz">Quizz</NavLink>
                 </li>
                 <li className="nav-item">
-                <NavLink className="nav-link" to="/favourites">Vocabulary</NavLink>
+                    <NavLink className="nav-link" to="/all">All questions</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/vocabulary">Vocabulary</NavLink>
                 </li>
                   
             </ul>

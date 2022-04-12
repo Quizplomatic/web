@@ -1,10 +1,39 @@
 [
     {
-        "question": "¿En qué año terminó la reconquista?",
-        "solution": "1492"
+        "id": "ee09d31cccdf4f58bef7e03de322ca08",
+        "title": "Bloque 1: ¿En qué año terminó la reconquista?",
+        "solution": "1492",
+        "category": "Bloque 1"
     },
     {
-        "question": "¿Quién es la reina del Reino Unido?",
-        "solution": "Isabel II"
+        "id": "1db2fec838fc4d38bbd9564e71bb5276",
+        "title": "Bloque 2: ¿Quién es la reina del Reino Unido?",
+        "solution": "Isabel II",
+        "category": "Bloque 2"
+    },
+    {
+        "id": "a808820a369c42cdbbd7c5e8a2aecd42",
+        "title": "Bloque 3: ¿Qué colores tiene la bandera de China?",
+        "solution": "Rojo y amarillo",
+        "category": "Bloque 3"
+    },
+    {
+        "id": "706365b6901e43a7a2fc3d335d92f08e",
+        "title": "BLoque 4: ¿Cuánto es 1+1?",
+        "solution": "2",
+        "category": "Bloque 4"
+    },
+    {
+        "id": "8781a61c6fc442cd918986bf176ecee3",
+        "title": "Cultura: ¿En qué fecha se firmó la primera constitución española?",
+        "solution": "19 de marzo de 1812",
+        "category": "Cultura General"
+    },
+    {
+        "id": "8e906077464a46dca742aa794427535e",
+        "title": "Cultura: ¿Quién es Alberto Durero?",
+        "solution": "Un pintor alemán",
+        "category": "Cultura General"
     }
+
 ]

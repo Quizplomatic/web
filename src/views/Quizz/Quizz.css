@@ -1,16 +1,21 @@
+.Quizz {
+    padding: 30px 40px;
+}
+
 .question-card {
     height: 200px;
     border: 2px solid;
-    margin: 30px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
+    margin-top: 30px
 }
 
 .answer {
-    padding: 10px 30px;
+    margin: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
