@@ -1,0 +1,34 @@
+.question-card {
+    height: 200px;
+    border: 2px solid;
+    margin: 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.answer {
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.write-answer {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.solution-button {
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.solution-button:hover {
+    background-color: gray;
+}
