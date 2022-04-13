@@ -1,0 +1,15 @@
+.NewQuestion {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-around;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input {
+    width: 100%;
+}

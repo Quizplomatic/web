@@ -1,10 +1,10 @@
-import './Quizz.css'
+import './Quiz.css'
 import questions from '../../data/questions.json'
 import React, { useState, useEffect } from 'react'
 
-const Quizz = () => {
-    const [quizz, setQuizz] = useState(questions)
-    const randomQuestion = quizz[Math.floor(Math.random() * (quizz.length - 0) + 0)]
+const Quiz = () => {
+    const [quiz, setQuiz] = useState(questions)
+    const randomQuestion = quiz[Math.floor(Math.random() * (quiz.length - 0) + 0)]
     const [question, setQuestion] = useState({})
     const [seeSolution, setSeeSolution] = useState(false)
     const [category, setCategory] = useState('')
@@ -26,15 +26,15 @@ const Quizz = () => {
     const filterQuestions = (selectedCategory) => {
         if (selectedCategory === "All" ) {
             setCategory('All')
-            setQuizz([...questions])
+            setQuiz([...questions])
         } else {
             setCategory(selectedCategory)
-            setQuizz([...questions].filter(question => question.category === selectedCategory))
+            setQuiz([...questions].filter(question => question.category === selectedCategory))
         }
     }
 
     return (
-        <div className="Quizz">
+        <div className="Quiz">
             <h2>Filter questions:</h2>
             <div>
                 <button onClick={() => filterQuestions("Bloque 1")} style={{backgroundColor: category === "Bloque 1" ? 'pink' : 'white'}}>Bloque 1</button>
@@ -65,4 +65,4 @@ const Quizz = () => {
     )
 }
 
-export default Quizz
+export default Quiz
