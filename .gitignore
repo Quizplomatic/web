@@ -21,3 +21,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/data/bloque1.json
+/src/data/bloque2.json
+/src/data/bloque3.json
+/src/data/bloque4.json
+/src/data/cultura.json
+
+.env
