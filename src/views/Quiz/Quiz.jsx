@@ -1,21 +1,38 @@
 import './Quiz.css'
-import questions from '../../data/questions.json'
 import React, { useState, useEffect } from 'react'
+import { getQuestions } from '../../services/QuizService'
 
-const Quiz = () => {
-    const [quiz, setQuiz] = useState(questions)
-    const randomQuestion = quiz[Math.floor(Math.random() * (quiz.length - 0) + 0)]
+const Quiz = () => {   
     const [question, setQuestion] = useState({})
     const [seeSolution, setSeeSolution] = useState(false)
     const [category, setCategory] = useState('')
 
     useEffect(() => {
-        setQuestion({...randomQuestion})
+        getQuestions()
+            .then(questions => {
+                const randomQuestion = questions[Math.floor(Math.random() * (questions.length - 0) + 0)]
+                setQuestion({...randomQuestion})
+                console.log(randomQuestion)
+            })
+            .catch(error => console.error(error))
         setCategory('All')
     }, [])
 
     const nextQuestion = () => {
-        setQuestion({...randomQuestion})
+        getQuestions()
+            .then(questions => {
+                if (category === 'All') {
+                    const randomQuestion = questions[Math.floor(Math.random() * (questions.length - 0) + 0)]
+                    setQuestion({...randomQuestion})
+                    console.log(randomQuestion)
+                } else {
+                    const filteredQuestions = [...questions].filter(question => question.category === category)
+                    const randomQuestion = filteredQuestions[Math.floor(Math.random() * (filteredQuestions.length - 0) + 0)]
+                    setQuestion({...randomQuestion})
+                    console.log(randomQuestion)
+                }
+            })
+
         setSeeSolution(false)
     }
 
@@ -24,13 +41,7 @@ const Quiz = () => {
     }
 
     const filterQuestions = (selectedCategory) => {
-        if (selectedCategory === "All" ) {
-            setCategory('All')
-            setQuiz([...questions])
-        } else {
-            setCategory(selectedCategory)
-            setQuiz([...questions].filter(question => question.category === selectedCategory))
-        }
+             setCategory(selectedCategory)
     }
 
     return (
@@ -45,13 +56,13 @@ const Quiz = () => {
                 <button onClick={() => filterQuestions("All")} style={{backgroundColor: category === "All" ? 'pink' : 'white'}}>All</button>
             </div>
 
-
             <div className="question-card">
                 {!seeSolution ? 
                 <h3>{question.title}</h3>
                 : <h3>{question.solution}</h3>
             }
             </div>
+            <p>Current question's category: {question.category}</p>
 
             <div className='answer'>
                 <div className='write-answer'>

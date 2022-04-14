@@ -32,7 +32,7 @@ const NewQuestion = () => {
             } else {
                 createQuestion({...data})
                     .then(question => {
-                        // navigate('/all')
+                        navigate('/all')
                         setErrors(false)
                         console.log(data)
                     })
