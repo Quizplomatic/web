@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { useForm, FormProvider } from 'react-hook-form'
 import { createQuestion } from '../../services/QuizService'
 import './NewQuestion.css'
 
@@ -34,7 +33,6 @@ const NewQuestion = () => {
                     .then(question => {
                         navigate('/all')
                         setErrors(false)
-                        console.log(data)
                     })
                     .catch(error => setErrors(error?.response?.data?.errors))
                 }
