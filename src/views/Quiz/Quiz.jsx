@@ -62,15 +62,18 @@ const Quiz = () => {
                 : <h3>{question.solution}</h3>
             }
             </div>
-            <p>Current question's category: {question.category}</p>
+            <p className="category">Category: {question.category}</p>
 
             <div className='answer'>
                 <div className='write-answer'>
                     <label htmlFor="answer">Your answer:</label>
                     <input type="text" name="answer" id="" />
                 </div>
-                <button className='solution-button' onClick={toggleSolution}>See {!seeSolution ? 'solution' : 'question'}</button>
-                <button className='solution-button' onClick={nextQuestion}>Next question</button>
+
+                <div>
+                    <button className='solution-button' onClick={toggleSolution}>See {!seeSolution ? 'solution' : 'question'}</button>
+                    <button className='solution-button' onClick={nextQuestion}>Next question</button>
+                </div>
             </div>
         </div>
     )

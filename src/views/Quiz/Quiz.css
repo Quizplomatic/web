@@ -1,5 +1,6 @@
 .Quiz {
     padding: 30px 40px;
+    width: 100%;
 }
 
 .question-card {
@@ -11,7 +12,7 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
-    margin-top: 30px
+    margin-top: 30px;
 }
 
 .answer {
@@ -36,4 +37,10 @@
 
 .solution-button:hover {
     background-color: gray;
+}
+
+.category {
+    text-align: end;
+    margin: 5px 20px;
+    font-size: 13px;
 }

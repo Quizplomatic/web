@@ -1,3 +1,7 @@
-/* .App {
-
-} */
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    justify-content: center;
+}
