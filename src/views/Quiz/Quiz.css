@@ -1,6 +1,6 @@
 .Quiz {
     padding: 30px 40px;
-    width: 100%;
+    max-width: 650px;
 }
 
 .question-card {
@@ -12,7 +12,7 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .answer {
@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 60px;
 }
 
 .write-answer {
@@ -43,4 +44,17 @@
     text-align: end;
     margin: 5px 20px;
     font-size: 13px;
+}
+
+.buttons {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (min-width: 500px) {
+    .question-card {
+        max-width: 400px;
+    }
 }

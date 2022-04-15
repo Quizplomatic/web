@@ -5,6 +5,7 @@ import FilterButtons from '../../components/FilterButtons/FilterButtons'
 
 const Quiz = () => {   
     const [question, setQuestion] = useState({})
+    const [loading, setLoading] = useState('false')
     const [seeSolution, setSeeSolution] = useState(false)
     const [category, setCategory] = useState('')
     const [allCategories, setAllCategories] = useState()
@@ -12,6 +13,8 @@ const Quiz = () => {
     useEffect(() => {
         getQuestions()
             .then(questions => {
+                setLoading(false)
+
                 const randomQuestion = questions[Math.floor(Math.random() * (questions.length - 0) + 0)]
                 setQuestion({...randomQuestion})
 
@@ -34,14 +37,14 @@ const Quiz = () => {
                 if (category === 'All') {
                     const randomQuestion = questions[Math.floor(Math.random() * (questions.length - 0) + 0)]
                     setQuestion({...randomQuestion})
+                    setSeeSolution(true)
                 } else {
                     const filteredQuestions = [...questions].filter(question => question.category === category)
                     const randomQuestion = filteredQuestions[Math.floor(Math.random() * (filteredQuestions.length - 0) + 0)]
                     setQuestion({...randomQuestion})
+                    setSeeSolution(true)
                 }
             })
-
-        setSeeSolution(false)
     }
 
     const toggleSolution = () => {
@@ -54,9 +57,11 @@ const Quiz = () => {
 
     return (
         <div className="Quiz">
+            {loading ? <p>Loading...</p> :  
+            <>
            <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories}/>
 
-            <div className="question-card">
+            <div className="question-card" >
                 {!seeSolution ? 
                 <h3>{question.title}</h3>
                 : <h3>{question.solution}</h3>
@@ -70,11 +75,13 @@ const Quiz = () => {
                     <input type="text" name="answer" id="" />
                 </div>
 
-                <div>
+                <div className="buttons">
                     <button className='solution-button' onClick={toggleSolution}>See {!seeSolution ? 'solution' : 'question'}</button>
                     <button className='solution-button' onClick={nextQuestion}>Next question</button>
                 </div>
             </div>
+            </>
+            }
         </div>
     )
 }
