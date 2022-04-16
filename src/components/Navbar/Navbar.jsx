@@ -5,30 +5,22 @@ import logo from '../../assests/quiz.svg'
 const Navbar = () => {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <img src={logo} alt="" className='logo' />
-          <NavLink className="navbar-brand" to="/">Quizplomatic</NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+        <div className="my-navbar">
+          <div className="align-items-center">
+            <img src={logo} alt="" className='logo' />
+            <NavLink className="quizplomatic" to="/">Quizplomatic</NavLink>
+          </div>
+
+          <div>
+            <ul className="navbar-nav d-flex flex-row justify-content-around links">
                 <li className="nav-item">
                     <NavLink className="nav-link"  to="/quiz">Quiz</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink className="nav-link" to="/all">All questions</NavLink>
+                    <NavLink className="nav-link" to="/all">All</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink className="nav-link" to="/new">Add new question</NavLink>
+                    <NavLink className="nav-link" to="/new">New</NavLink>
                 </li>
                   
             </ul>

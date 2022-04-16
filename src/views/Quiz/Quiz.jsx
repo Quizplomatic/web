@@ -37,22 +37,23 @@ const Quiz = () => {
                 if (category === 'All') {
                     const randomQuestion = questions[Math.floor(Math.random() * (questions.length - 0) + 0)]
                     setQuestion({...randomQuestion})
-                    setSeeSolution(true)
+                    setSeeSolution(false)
                 } else {
                     const filteredQuestions = [...questions].filter(question => question.category === category)
                     const randomQuestion = filteredQuestions[Math.floor(Math.random() * (filteredQuestions.length - 0) + 0)]
                     setQuestion({...randomQuestion})
-                    setSeeSolution(true)
+                    setSeeSolution(false)
                 }
             })
     }
 
     const toggleSolution = () => {
         setSeeSolution(seeSolution === false ? true : false)
+
     }
 
     const filterQuestions = (selectedCategory) => {
-             setCategory(selectedCategory)
+            setCategory(selectedCategory)            
     }
 
     return (

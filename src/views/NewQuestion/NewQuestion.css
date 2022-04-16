@@ -1,5 +1,9 @@
+.main {
+    margin-top: 30px;
+}
+
 .NewQuestion {
-    padding: 20px 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     height: 300px;
@@ -10,6 +14,12 @@ label {
     margin-right: 10px;
 }
 
-input {
+textarea {
     width: 100%;
+}
+
+@media (min-width: 700px) {
+    .NewQuestion {
+        min-width: 700px;
+    }
 }

@@ -1,3 +1,32 @@
 .logo {
     width: 40px;
+    margin-right: 15px;
+}
+
+.quizplomatic {
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+    color: black;
+    margin-top: 50px;
+}
+
+.my-navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    min-width: 150px;
+    justify-content: space-around;
+}
+
+li {
+    list-style-type: none;
 }

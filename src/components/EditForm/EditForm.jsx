@@ -1,13 +1,10 @@
 import './EditForm.css'
-import react, { useState, useEffect } from 'react'
+import react, { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { updateQuestion } from '../../services/QuizService'
-import { useNavigate } from 'react-router-dom'
 
 const EditForm = ({ question, toggleEdit }) => {
-    const [data, setData] = useState()
     const { register, handleSubmit, setValue } = useForm()
-    const navigate = useNavigate()
 
     useEffect(() => {
         setValue("title", question.title)
@@ -19,6 +16,7 @@ const EditForm = ({ question, toggleEdit }) => {
         updateQuestion(data)
             .then(() => {
                 toggleEdit()
+                console.log("title", data.title)
             })
     }
 

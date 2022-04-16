@@ -39,19 +39,20 @@ const NewQuestion = () => {
     }
 
     return (
-        <>
+        <div className="main">
+        <h1>Add a new question</h1>
         <form className="NewQuestion" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Title:</label>
-                <input type="text" name="title" id="title" placeholder="Enter the title of the question..." onChange={handleChange} />
+                <textarea type="text" name="title" id="title" placeholder="Enter the title of the question..." onChange={handleChange} />
             </div>
 
-            <div>
+            <div className="mt-3">
                 <label htmlFor="solution">Solution:</label>
-                <input type="text" name="solution" id="solution" placeholder="Enter the solution..." onChange={handleChange}/>
+                <textarea type="text" name="solution" id="solution" placeholder="Enter the solution..." onChange={handleChange}/>
             </div>
 
-            <div>
+            <div className="mt-4 mb-4">
                 <label htmlFor="category">Catergory:</label>
                 <select name="category" id="category" onChange={handleChange}>
                     <option selected="selected" disabled="disabled">Select a category</option>
@@ -66,7 +67,7 @@ const NewQuestion = () => {
             <button type='submit'>Submit</button>
         </form>
         {errors && <div className="alert alert-dark" role="alert">Check all fields!</div>}
-        </>
+        </ div>
     )
 }
 
