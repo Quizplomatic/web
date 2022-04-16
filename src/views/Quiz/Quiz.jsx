@@ -57,33 +57,41 @@ const Quiz = () => {
     }
 
     return (
+
+        <>
+        <h1 className="intro">Welcome to Quizplomatic!</h1>
         <div className="Quiz">
             {loading ? <p>Loading...</p> :  
             <>
-           <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories}/>
-
-            <div className="question-card" >
-                {!seeSolution ? 
-                <h3>{question.title}</h3>
-                : <h3>{question.solution}</h3>
-            }
+            <div className="FilterButtons-quiz">
+                <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} />
             </div>
-            <p className="category">Category: {question.category}</p>
 
-            <div className='answer'>
+            <div>
+                <div className="question-card" >
+                    {!seeSolution ? 
+                    <h3>{question.title}</h3>
+                    : <h3>{question.solution}</h3>
+                }
+                </div>
+                <p className="category">Category: {question.category}</p>
                 <div className='write-answer'>
                     <label htmlFor="answer">Your answer:</label>
                     <input type="text" name="answer" id="" />
                 </div>
+            </div>
 
+
+            
                 <div className="buttons">
                     <button className='solution-button' onClick={toggleSolution}>See {!seeSolution ? 'solution' : 'question'}</button>
                     <button className='solution-button' onClick={nextQuestion}>Next question</button>
                 </div>
-            </div>
+
             </>
             }
         </div>
+        </>
     )
 }
 

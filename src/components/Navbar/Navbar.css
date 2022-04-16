@@ -30,3 +30,9 @@
 li {
     list-style-type: none;
 }
+
+@media (max-width: 500px) {
+    .logo {
+        display: none;
+    }
+}

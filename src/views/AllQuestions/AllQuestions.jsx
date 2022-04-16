@@ -50,7 +50,11 @@ const AllQuestions = () => {
     return (
         <div className="AllQuestions">
             <h1>All Questions</h1>
-            <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} toggleEdit={toggleEdit}/>
+
+            <div className="FilterButtons-all">
+                <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} toggleEdit={toggleEdit}/>
+            </div>
+
             {loading ? <p>Loading...</p> : 
                 questions.map(question => {
                     return (

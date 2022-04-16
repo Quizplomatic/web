@@ -10,3 +10,14 @@
 h3 {
     font-size: 18px;
 }
+
+.FilterButtons-all {
+    margin-top: 20px;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(30px, auto);
+}
