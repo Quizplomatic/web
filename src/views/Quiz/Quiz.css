@@ -15,6 +15,8 @@
     width: 100%;        
     margin-top: 60px;
     perspective: 1000px;
+    width: 100vw;
+    display: flex;
 }
 
 .question-card-inner {
@@ -24,7 +26,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.2s;
+    transition: transform 0.6s;
     transform-style: preserve-3d;
 }
 
@@ -46,7 +48,7 @@
     background-color: white;
     color: black;
 }
-  
+
 
 .question-card-back {
     background-color: pink;
@@ -57,130 +59,37 @@
 .flip {
     transform: rotateY(180deg);
 }
-/* 
-.box-space {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 400px;
-    border: 1px saddlebrown solid;
+
+.previous-question {
+    animation: disappear 0.5s linear;
+    animation-iteration-count: 1;
+    left: -200%;
 }
 
-.myBox {
-    width: 100px;
-    height: 100px;
-    border: 2px solid;
-    position: absolute;
-    left: 90%;
-    top: 150px;
-    animation: moveFirst 5s linear .2s;
+.new-question {
+    animation: appear 0.5s linear;
     animation-iteration-count: 1;
 }
 
-.clouds {
-    
-  }
-  
-  .initialCloud {
-    position: absolute;
-    left: 100%;
-    top: 150px;
-    animation: moveFirst 5s linear .2s;
-    animation-iteration-count: 1;
-    width: 150px;
-  }
-  
-  .firstCloud {
-    position: absolute;
-    left: -30%;
-    top: 150px;
-    animation: move 5s linear 5s infinite;
-    width: 150px;
-  }
-  
-  .secondCloud {
-    position: absolute;
-    left: -30%;
-    top: 200px;
-    animation: move 8s linear 0s infinite;
-    width: 150px;
-  }
-  
-  .thirdCloud {
-    top: 250px;
-    left: -30%;
-    position: absolute;
-    animation: move 11s linear 1s infinite;
-    width: 150px;
-  }
-  
-  @-webkit-keyframes move {
-    from {
-      left: -30%;
-    }
-    to {
-      left: 100%;
-    }
-  }
-  
-  @-webkit-keyframes moveFirst {
-    from {
-      left: 50%;
-    }
-    to {
-      left: 100%;
-    }
-  } */
+@keyframes disappear {
+    0%   {left: 0%;}
+    100% {left: -200%;}
+}
 
+@keyframes appear {
+    0%   {left: 200%;}
+    100% {left: 0%;}
+}
 
-  .wrapper {
-      width: 600px;
-      border: 1px saddlebrown solid;
-      height: 200px;
-  }
-  
-  .clouds {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: gray;
-  }
-  
-  .clouds, .cloud1 {
-    left: 50px;
-    animation: cloud1 20s linear 1;
-  }
-  
-  .clouds, .cloud2 {
-    left: -50px;
-    animation: cloud1 20s 10s linear 1;
-  }
-  
-  @keyframes cloud1 {
-    0% {
-      left: 20px;
-    }
-    100% {
-      left: 3000px;
-    }
-  }
-  
-  @keyframes cloud2 {
-    0% {
-      left: -50px;
-    }
-    100% {
-      left: 3000px;
-    }
-  }
-
-
-
-.write-answer {
+.your-answer {
     display: flex;
     width: 100%;
     justify-content: space-around;
     margin: 15px 0;
+}
+
+.answer-input {
+    width: 80%;
 }
 
 .solution-button {
