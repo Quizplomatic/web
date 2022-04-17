@@ -44,12 +44,12 @@ const NewQuestion = () => {
         <form className="NewQuestion" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Title:</label>
-                <textarea type="text" name="title" id="title" placeholder="Enter the title of the question..." onChange={handleChange} />
+                <textarea type="text" name="title" id="title" placeholder="Write here..." onChange={handleChange} />
             </div>
 
             <div className="mt-3">
                 <label htmlFor="solution">Solution:</label>
-                <textarea type="text" name="solution" id="solution" placeholder="Enter the solution..." onChange={handleChange}/>
+                <textarea type="text" name="solution" id="solution" placeholder="Write here..." onChange={handleChange}/>
             </div>
 
             <div className="mt-4 mb-4">

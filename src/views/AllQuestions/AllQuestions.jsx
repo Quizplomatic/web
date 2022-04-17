@@ -10,6 +10,7 @@ const AllQuestions = () => {
     const [category, setCategory] = useState('All')
     const [allCategories, setAllCategories] = useState()
     const [edit, setEdit] = useState({ active: false, id: '' })
+    const [changedQuestion, setChangedQuestion] = useState(false)
 
     useEffect(() => {
         getQuestions()
@@ -31,7 +32,7 @@ const AllQuestions = () => {
                 }
             })
             .catch(error => console.error(error))
-    }, [category])
+    }, [changedQuestion || category])
 
     const filterQuestions = (selectedCategory) => {
         setCategory(selectedCategory)
@@ -43,6 +44,11 @@ const AllQuestions = () => {
         } else {
             setEdit({ active: true, id: id })
         }
+    }
+
+    const changeQuestion = (data) => {
+        setChangedQuestion(data)
+        console.log(category)
     }
 
     
@@ -61,7 +67,7 @@ const AllQuestions = () => {
                         <div key={question._id} className="question">
 
                             {edit.active && edit.id === question._id ? 
-                                <EditForm edit={edit} toggleEdit={toggleEdit} question={question}/>
+                                <EditForm edit={edit} toggleEdit={toggleEdit} question={question} changeQuestion={changeQuestion}/>
                             :
                             <div className='mt-5'>
                                 <h3>{question.title}</h3>

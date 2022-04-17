@@ -3,7 +3,7 @@ import react, { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { updateQuestion } from '../../services/QuizService'
 
-const EditForm = ({ question, toggleEdit }) => {
+const EditForm = ({ question, toggleEdit, changeQuestion }) => {
     const { register, handleSubmit, setValue } = useForm()
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const EditForm = ({ question, toggleEdit }) => {
         updateQuestion(data)
             .then(() => {
                 toggleEdit()
-                console.log("title", data.title)
+                changeQuestion(data)
             })
     }
 

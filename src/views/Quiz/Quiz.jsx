@@ -53,12 +53,18 @@ const Quiz = () => {
     }
 
     const filterQuestions = (selectedCategory) => {
-            setCategory(selectedCategory)            
+            setCategory(selectedCategory)
     }
 
     return (
 
         <>
+            <div class="wrapper">
+                <div class="clouds cloud1"></div>
+                <div class="clouds cloud2"></div>
+            </div>
+
+
         <h1 className="intro">Welcome to Quizplomatic!</h1>
         <div className="Quiz">
             {loading ? <p>Loading...</p> :  
@@ -67,26 +73,38 @@ const Quiz = () => {
                 <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} />
             </div>
 
-            <div>
+            <div className="question-card">
+                <div class={`question-card-inner ${seeSolution ? "flip" : ""}`}>
+                    <div className="question-card-front">
+                        <h3>{question.title}</h3>
+                    </div>
+
+                    <div className="question-card-back">
+                        <h3>{question.solution}</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <p className="category">Category: {question.category}</p>
+            <div className='write-answer'>
+                <label htmlFor="answer">Your answer:</label>
+                <input type="text" name="answer" id="" />
+            </div>
+
+
+            {/* <div>
                 <div className="question-card" >
                     {!seeSolution ? 
                     <h3>{question.title}</h3>
                     : <h3>{question.solution}</h3>
                 }
                 </div>
-                <p className="category">Category: {question.category}</p>
-                <div className='write-answer'>
-                    <label htmlFor="answer">Your answer:</label>
-                    <input type="text" name="answer" id="" />
-                </div>
+            </div> */}
+
+            <div className="buttons">
+                <button className='solution-button' onClick={toggleSolution}>See {!seeSolution ? 'solution' : 'question'}</button>
+                <button className='solution-button' onClick={nextQuestion}>Next question</button>
             </div>
-
-
-            
-                <div className="buttons">
-                    <button className='solution-button' onClick={toggleSolution}>See {!seeSolution ? 'solution' : 'question'}</button>
-                    <button className='solution-button' onClick={nextQuestion}>Next question</button>
-                </div>
 
             </>
             }
