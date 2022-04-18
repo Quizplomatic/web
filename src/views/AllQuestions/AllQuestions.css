@@ -21,3 +21,7 @@ h3 {
     grid-gap: 10px;
     grid-auto-rows: minmax(30px, auto);
 }
+
+.search-question {
+    margin-top: 30px;
+}

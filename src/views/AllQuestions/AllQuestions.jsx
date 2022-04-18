@@ -12,6 +12,7 @@ const AllQuestions = () => {
     const [edit, setEdit] = useState({ active: false, id: '' })
     const [changedQuestion, setChangedQuestion] = useState(false)
     const [didDelete, setDidDelete] = useState(false)
+    const [search, setSearch] = useState ("")
 
     useEffect(() => {
         getQuestions()
@@ -66,28 +67,33 @@ const AllQuestions = () => {
                 <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} toggleEdit={toggleEdit}/>
             </div>
 
+            <div className="search-question">
+                <h1>Search</h1>
+                <input type="text" onChange={(event) => setSearch(event.target.value)} />
+            </div>
+
             {loading ? <p>Loading...</p> : 
                 questions.map(question => {
-                    return (
-                        <div key={question._id} className="question">
-
-                            {edit.active && edit.id === question._id ? 
-                                <EditForm edit={edit} toggleEdit={toggleEdit} question={question} changeQuestion={changeQuestion}/>
-                            :
-                            <div className='mt-5'>
-                                <h3>{question.title}</h3>
-                                <p>{question.solution}</p>
-                                
-                                <button onClick={() => toggleEdit(question._id)}>edit</button>
-                                <button onClick={() => handleDelete(question._id)}>delete</button>
+                    if (question.title.toLowerCase().includes(search.toLowerCase()) || question.solution.toLowerCase().includes(search.toLowerCase()) ) {
+                        return (
+                            <div key={question._id} className="question">
+    
+                                {edit.active && edit.id === question._id ? 
+                                    <EditForm edit={edit} toggleEdit={toggleEdit} question={question} changeQuestion={changeQuestion}/>
+                                :
+                                <div className='mt-5'>
+                                    <h3>{question.title}</h3>
+                                    <p>{question.solution}</p>
+                                    
+                                    <button onClick={() => toggleEdit(question._id)}>edit</button>
+                                    <button onClick={() => handleDelete(question._id)}>delete</button>
+                                </div>
+                            }
                             </div>
-                        }
-                        </div>
-                    )
+                        )
+                    }
                 })
-            
             }
-
         </div>
     )
 }
