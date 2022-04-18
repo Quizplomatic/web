@@ -15,7 +15,6 @@ const Quiz = () => {
         getQuestions()
             .then(questions => {
                 setLoading(false)
-
                 const randomQuestion = questions[Math.floor(Math.random() * (questions.length - 0) + 0)]
                 setQuestion({...randomQuestion})
 
@@ -87,9 +86,9 @@ const Quiz = () => {
 
                 <div>
                     <div className="question-card">
-                    {/* {previousQuestion &&
+                    {previousQuestion &&
                         
-                            <div class={`question-card-inner previous-question ${seeSolution ? "flip" : ""}`}>
+                            <div className={`question-card-inner previous-question ${seeSolution ? "flip" : ""}`}>
                                 <div className="question-card-front">
                                     <h3>{previousQuestion.title}</h3>
                                 </div>
@@ -99,9 +98,9 @@ const Quiz = () => {
                                 </div>
                             </div>
 
-                    } */}
+                    }
 
-                        <div class={`question-card-inner ${seeSolution ? "flip" : ""}`}>
+                        <div className={`question-card-inner new-question ${seeSolution ? "flip" : ""}`}>
                             <div className="question-card-front">
                                 <h3>{question.title}</h3>
                             </div>
