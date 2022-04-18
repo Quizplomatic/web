@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import EditForm from '../../components/EditForm/EditForm'
 import FilterButtons from '../../components/FilterButtons/FilterButtons'
-import { getQuestions } from '../../services/QuizService'
+import { deleteQuestion, getQuestions } from '../../services/QuizService'
 import './AllQuestions.css'
 
 const AllQuestions = () => {
@@ -11,6 +11,7 @@ const AllQuestions = () => {
     const [allCategories, setAllCategories] = useState()
     const [edit, setEdit] = useState({ active: false, id: '' })
     const [changedQuestion, setChangedQuestion] = useState(false)
+    const [didDelete, setDidDelete] = useState(false)
 
     useEffect(() => {
         getQuestions()
@@ -27,12 +28,14 @@ const AllQuestions = () => {
                 if (category === 'All') {
                     setQuestions(questions)
                     setLoading(false)
+                    setDidDelete(false)
                 } else {
                     setQuestions(questions.filter(question => question.category === category))
+                    setDidDelete(false)
                 }
             })
             .catch(error => console.error(error))
-    }, [changedQuestion || category])
+    }, [changedQuestion, category, didDelete])
 
     const filterQuestions = (selectedCategory) => {
         setCategory(selectedCategory)
@@ -48,10 +51,12 @@ const AllQuestions = () => {
 
     const changeQuestion = (data) => {
         setChangedQuestion(data)
-        console.log(category)
     }
 
-    
+    const handleDelete = (id) => {
+        deleteQuestion(id)
+            .then(() => setDidDelete(true))
+    }
 
     return (
         <div className="AllQuestions">
@@ -72,9 +77,9 @@ const AllQuestions = () => {
                             <div className='mt-5'>
                                 <h3>{question.title}</h3>
                                 <p>{question.solution}</p>
-
+                                
                                 <button onClick={() => toggleEdit(question._id)}>edit</button>
-                                <button>delete</button>
+                                <button onClick={() => handleDelete(question._id)}>delete</button>
                             </div>
                         }
                         </div>
