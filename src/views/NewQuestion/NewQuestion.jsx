@@ -42,6 +42,7 @@ const NewQuestion = () => {
         <div className="main">
         <h1>Add a new question</h1>
         <form className="NewQuestion" onSubmit={handleSubmit}>
+        {errors && <div className="alert alert-dark mt-4 validation" role="alert">Check all fields!</div>}
             <div>
                 <label htmlFor="title">Title:</label>
                 <textarea type="text" name="title" id="title" placeholder="Write here..." onChange={handleChange} />
@@ -64,9 +65,8 @@ const NewQuestion = () => {
                 </select>
             </div>
 
-            <button type='submit'>Submit</button>
+            <button type='submit' className="new-button">Submit</button>
         </form>
-        {errors && <div className="alert alert-dark" role="alert">Check all fields!</div>}
         </ div>
     )
 }

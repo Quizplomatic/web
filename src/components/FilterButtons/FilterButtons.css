@@ -1,0 +1,20 @@
+button {
+    font-size: 15px;
+    font-weight: 300;
+    outline: 0;
+    border: 0.5px solid black;
+    position: relative;
+    background-color: white
+}
+    
+button::after {
+    border-radius: 4px;
+    content: "";
+    background-color: #f0e3d3;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 5px;
+    left: 5px;
+}

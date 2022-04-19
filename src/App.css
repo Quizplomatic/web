@@ -4,3 +4,19 @@
     flex-direction: column;
     justify-content: center; 
 }
+
+body {
+    background-color: #fffaf5;
+    font-family: 'serif';
+}
+
+
+/* Palette */
+
+/*
+yellow: #FEF5D4
+orange: #FFD6AA
+pink: #EFBAD6
+purple: #DADAFC
+
+*/
