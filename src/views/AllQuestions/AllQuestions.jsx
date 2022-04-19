@@ -3,6 +3,8 @@ import EditForm from '../../components/EditForm/EditForm'
 import FilterButtons from '../../components/FilterButtons/FilterButtons'
 import { deleteQuestion, getQuestions } from '../../services/QuizService'
 import './AllQuestions.css'
+import editIcon from '../../assests/pencil-square.svg'
+import deleteIcon from '../../assests/trash.svg'
 
 const AllQuestions = () => {
     const [questions, setQuestions] = useState()
@@ -62,16 +64,20 @@ const AllQuestions = () => {
     return (
         <div className="AllQuestions">
             <h1>All Questions</h1>
+            <hr />
 
-            <div className="FilterButtons-all">
-                <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} toggleEdit={toggleEdit}/>
+            <div className="filter-search">
+                <div className="FilterButtons-all">
+                    <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} toggleEdit={toggleEdit}/>
+                </div>
+
+                <div className="search-question">
+                    <h1>Search</h1>
+                    <input type="text" onChange={(event) => setSearch(event.target.value)} />
+                </div>
             </div>
 
-            <div className="search-question">
-                <h1>Search</h1>
-                <input type="text" onChange={(event) => setSearch(event.target.value)} />
-            </div>
-
+            <div className="all-questions-div">
             {loading ? <p>Loading...</p> : 
                 questions.map(question => {
                     if (question.title.toLowerCase().includes(search.toLowerCase()) || question.solution.toLowerCase().includes(search.toLowerCase()) ) {
@@ -81,12 +87,15 @@ const AllQuestions = () => {
                                 {edit.active && edit.id === question._id ? 
                                     <EditForm edit={edit} toggleEdit={toggleEdit} question={question} changeQuestion={changeQuestion}/>
                                 :
-                                <div className='mt-5'>
-                                    <h3>{question.title}</h3>
-                                    <p>{question.solution}</p>
-                                    
-                                    <button onClick={() => toggleEdit(question._id)}>edit</button>
-                                    <button onClick={() => handleDelete(question._id)}>delete</button>
+                                <div className="question-div-all">
+                                    <h3 className="question-title-all">{question.title}</h3>
+                                    <p className="question-solution-all">{question.solution}</p>
+
+
+                                    <div className="buttons-div-all">
+                                        <img src={editIcon} alt="" onClick={() => toggleEdit(question._id)} className="icon"/>
+                                        <img src={deleteIcon} alt="" onClick={() => handleDelete(question._id)} className="icon"/>
+                                    </div>  
                                 </div>
                             }
                             </div>
@@ -94,6 +103,7 @@ const AllQuestions = () => {
                     }
                 })
             }
+            </div>
         </div>
     )
 }

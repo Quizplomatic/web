@@ -19,8 +19,8 @@
 }
 
 .question-card-inner {
-    border: 2px solid;
-    border-radius: 20px;
+    border: 1px solid;
+    border-radius: 15px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -35,7 +35,7 @@
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
-    border-radius: 20px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,14 +45,16 @@
 
 .question-card-front {
     background-color: white;
-    color: black;
 }
 
 
 .question-card-back {
-    background-color: pink;
-    color: black;
+    background-color: #e5edf1;
     transform: rotateY(180deg);
+}
+
+.question-title-quiz {
+    font-size: 22px;
 }
 
 .flip {
@@ -60,31 +62,30 @@
 }
 
 .previous-question {
-    animation: disappear 0.5s linear;
+    animation: disappear 2s linear;
     animation-iteration-count: 1;
-    left: -200%;
 }
 
 .new-question {
-    animation: appear 0.5s linear;
+    animation: appear 2s linear;
     animation-iteration-count: 1;
 }
 
-@keyframes disappear {
+/* @keyframes disappear {
     0%   {left: 0%;}
-    100% {left: -200%;}
+    100% {left: -150%;}
 }
 
 @keyframes appear {
-    0%   {left: 200%;}
+    0%   {left: 150%;}
     100% {left: 0%;}
-}
+} */
 
 .your-answer {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin: 15px 0;
+    margin: 35px 0;
 }
 
 .answer-input {
@@ -95,16 +96,14 @@
     align-items: center;
     border-radius: 5px;
     padding: 10px;
-}
-
-.solution-button:hover {
-    background-color: gray;
+    background-color: white;
 }
 
 .category {
     text-align: end;
     margin: 5px 20px;
     font-size: 13px;
+    color: #9C8A7C;
 }
 
 .buttons {
@@ -115,7 +114,6 @@
 }
 
 .FilterButtons-quiz {
-    margin-top: 20px;
     max-width: 600px;
     display: flex;
     justify-content: space-around;
@@ -128,7 +126,7 @@
 button {
     border-radius: 5px;
     min-height: 50px;
-    min-width: 100px;
+    min-width: 80px;
     margin: 0px;
 }
 

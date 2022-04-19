@@ -2,6 +2,7 @@ import './Quiz.css'
 import React, { useState, useEffect } from 'react'
 import { getQuestions } from '../../services/QuizService'
 import FilterButtons from '../../components/FilterButtons/FilterButtons'
+import QuizQuestion from '../../components/QuizQuestion/QuizQuestion'
 
 const Quiz = () => {   
     const [question, setQuestion] = useState({})
@@ -76,7 +77,7 @@ const Quiz = () => {
     return (
 
         <>
-        <h1 className="intro">Welcome to Quizplomatic!</h1>
+        <h1 className="intro">Quizplomatic</h1>
         <div className="Quiz">
             {loading ? <p>Loading...</p> :  
             <>
@@ -84,41 +85,42 @@ const Quiz = () => {
                 <FilterButtons filterQuestions={filterQuestions} category={category} allCategories={allCategories} />
             </div>
 
+            {/* <QuizQuestion previousQuestion={previousQuestion} seeSolutionÇ={seeSolution} question={question}/> */}
+
                 <div>
-                    <div className="question-card">
-                    {previousQuestion &&
+                    <div  className="question-card">
+                    {/* {previousQuestion &&
                         
                             <div className={`question-card-inner previous-question ${seeSolution ? "flip" : ""}`}>
                                 <div className="question-card-front">
-                                    <h3>{previousQuestion.title}</h3>
+                                    <h3 className="question-title-quiz">{previousQuestion.title}</h3>
                                 </div>
 
                                 <div className="question-card-back">
-                                    <h3>{previousQuestion.solution}</h3>
+                                    <h3 className="question-title-quiz">{previousQuestion.solution}</h3>
                                 </div>
                             </div>
-
-                    }
+                    } */}
 
                         <div className={`question-card-inner new-question ${seeSolution ? "flip" : ""}`}>
                             <div className="question-card-front">
-                                <h3>{question.title}</h3>
+                                <h3 className="question-title-quiz">{question.title}</h3>
                             </div>
 
                             <div className="question-card-back">
-                                <h3>{question.solution}</h3>
+                                <h3 className="question-title-quiz">{question.solution}</h3>
                             </div>
                         </div>
-
-                </div>
-                
+                    </div>
                 <p className="category">Category: {question.category}</p>
-
-                <div className='your-answer'>
+                <div className="your-answer">
                     <label htmlFor="answer">Your answer:</label>
                     <input type="text" className="answer-input" name="answer" id="" />
                 </div>
-            </div>
+                </div>
+                
+
+            
 
             <div className="buttons">
                 <button className='solution-button' onClick={toggleSolution}>See {!seeSolution ? 'solution' : 'question'}</button>
