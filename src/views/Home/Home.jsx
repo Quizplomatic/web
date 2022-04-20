@@ -22,7 +22,7 @@ const Home = () => {
                 <p className="home-p"><i>+2000 questions!</i></p>
 
                 <div>
-                    <h2 className="home-h2">Put your dimplomacy skills and knowledge to the test!</h2>
+                    <h2 className="home-h2">Put your diplomacy skills and knowledge to the test!</h2>
                     <h4 className="home-h4">This web will give you a random question from our database for you to check your knowledge in all-things-diplomacy. You can also filter by category, search for a specific term, or check all of the questions and their answers.</h4>
                     <Link className="lets-start" to="/quiz">Let's start!</Link>
                 </div>
