@@ -11,7 +11,7 @@ It is not deployed anywhere yet, so here you can see some screenshots. :)
 <img width="1391" alt="Screenshot 2022-04-20 at 02 43 17" src="https://user-images.githubusercontent.com/71184110/164124215-f65bcc32-6aef-4af4-8b4b-b0a5d3165c2f.png">
 
 <div>
-  <img width="320" height="700" alt="Screenshot 2022-04-20 at 02 46 32" src="https://user-images.githubusercontent.com/71184110/164124925-1e6816e1-9dbb-46b4-a98b-05d41f433714.png">
+  <img width="320" height="700" alt="Screenshot 2022-04-20 at 02 50 46" src="https://user-images.githubusercontent.com/71184110/164125218-fa5922b3-5260-4f58-a1d7-a86d785b3a3c.png">
 
   <img width="320" height="700" alt="Screenshot 2022-04-20 at 02 44 41" src="https://user-images.githubusercontent.com/71184110/164124735-21aef063-ba95-4c3d-adc3-f76aa39593c8.png">
   
